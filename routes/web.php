@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\DB;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,5 +15,15 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    $message = '';
+    try {
+        $pdo = DB::connection()->getPdo();
+        if ($pdo) {
+            $message = 'connection active';
+        }
+    } catch (\Exception $e) {
+        
+    }
+
+    return view('welcome', ['message' => $message]);
 });

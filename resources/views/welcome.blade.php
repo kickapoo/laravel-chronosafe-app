@@ -55,6 +55,7 @@
             <img src="https://next.simpliform.se/assets/Lime-FORMS-White-SVG-RGB.svg" class="img-responsive formslogo">
             <p class="app_initialised">Your application is initialised!</p>
             <p class="app_initialised"> {{ env('APP_NAME=Laravel', 'Lime') }} </p>
+            <p class="app_initialised"> {{ $message }} </p>
         </div>
     </body>
 </html>
